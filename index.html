@@ -1,1 +1,40 @@
-<!doctype html><html><head><meta charset="utf-8"><link rel="preload" href="forced_square.woff2" as="font" type="font/woff2" crossorigin="anonymous"/><link rel="preload" href="images/logo.svg" as="image" type="image/svg+xml"/><link rel="preload" href="images/discord.svg" as="image" type="image/svg+xml"/><link rel="manifest" href="manifest.json"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no"><script defer="defer" src="error_screen.bundle.js"></script><script defer="defer" src="main.bundle.js"></script></head><body><canvas id="screen"></canvas><div id="ui"></div><div id="transition-layer"></div></body></html>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="preload" href="forced_square.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
+    <link rel="preload" href="images/logo.svg" as="image" type="image/svg+xml"/>
+    <link rel="preload" href="images/discord.svg" as="image" type="image/svg+xml"/>
+    <link rel="manifest" href="manifest.json"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no">
+    <script defer="defer" src="error_screen.bundle.js"></script>
+    <script defer="defer" src="main.bundle.js"></script>
+</head>
+<body>
+    <canvas id="screen"></canvas>
+    <div id="ui"></div>
+    <div id="transition-layer"></div>
+
+    <!-- START OF AUTO-FADING TOS DISCLAIMER -->
+    <div id="tos-disclaimer" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; font-family: sans-serif; text-align: center; font-size: 11px; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.75); padding: 8px 14px; border-radius: 4px; max-width: 90%; transition: opacity 1.5s ease; opacity: 1;">
+        <strong>Disclaimer:</strong> Unofficial version. Not affiliated with or sponsored by Kodub or CrazyGames. 
+        Original by <a href="https://kodub.com" target="_blank" style="color: #58a6ff; text-decoration: underline;">Kodub</a>. 
+        Play official version on <a href="https://crazygames.com" target="_blank" style="color: #58a6ff; text-decoration: underline; font-weight: bold;">CrazyGames</a>.
+    </div>
+
+    <script>
+        // Wait 8 seconds, smoothly fade out, then remove from view
+        setTimeout(function() {
+            var disclaimer = document.getElementById('tos-disclaimer');
+            if (disclaimer) {
+                disclaimer.style.opacity = '0';
+                setTimeout(function() {
+                    disclaimer.style.display = 'none';
+                }, 1500); // Removes element after transition completes
+            }
+        }, 8000); // 8000 milliseconds = 8 seconds
+    </script>
+    <!-- END OF AUTO-FADING TOS DISCLAIMER -->
+
+</body>
+</html>
